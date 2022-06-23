@@ -1,0 +1,78 @@
+* {
+    font-family: 'Smooch', cursive;
+    color: #fff;
+}
+
+body{
+    margin: 0;
+    background-color: rgba(127, 163, 229, 0.92);
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculadora{
+    /*Creamos la grilla para nuestros botones*/
+    display: grid;
+
+    /*Crea las filas y las veces que se repiten los botones*/
+    grid-template-columns: repeat(4,75px) ;
+    grid-template-rows: 160px repeat(5,75px);
+    background-color: lightcoral;
+    padding: 15px;
+    border-radius: 32px;
+    /*Creamos la sombra sin que quede difuminada*/
+    box-shadow: 15px 10px 3px 5px #00000033;
+
+}
+
+button{
+    cursor: pointer;
+    margin: 5px;
+    padding: 0;
+    border-radius: 32px;
+    font-size: 1.5rem;
+    border: none;
+    background-color: lightcoral;
+    box-shadow: 5px 5px 10px -3px #00000033, -5px -5px 15px 3px rgba(234, 121, 121, 0.72);
+}
+
+/*Feedback al pulsar el botón*/
+
+button:active{
+    background-color: #d96a6a;
+}
+
+button:focus{
+    outline: none;
+}
+.col-2{
+    grid-column: span 2;
+}
+
+
+.display{
+    grid-column: 1 / -1;
+    padding: 16px;
+    display: flex;
+    margin: 10px 10px 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #363636;
+    border-radius: 32px;
+    text-align: right;
+    justify-content: space-between;
+    word-break: break-all; /*para poder irnos a dos líneas en caso de necesitarlo*/
+    box-shadow: 0px 0px 3px 10px rgba(0, 0, 0, 0.16);
+
+}
+#valor-actual{
+    font-size: 1.5rem;
+}
+
+#valor-anterior{
+    font-size: 2rem;
+}
