@@ -1,16 +1,8 @@
-class Calculadora{
-    /*Llevará a cabo las operaciones de la calculadora en sí mismo*/
-    suma = (num1, num2) => num1 + num2;
-    resta = (num1, num2) => num1 - num2;
-    division = (num1, num2) => num1 / num2;
-    multiplicacion = (num1, num2) => num1 * num2;
-}
 
 class Display{
     constructor(displayValorAnterior,displayValorActual) {
         this.displayValorActual = displayValorActual;
         this.displayValorAnterior = displayValorAnterior;
-        this.calculadora = new Calculadora();
         this.valorActual = '';
         this.valorAnterior = '';
         this.signos = {
@@ -56,6 +48,21 @@ class Display{
         const valorActual = parseFloat(this.valorActual);
 
         if( isNaN(valorActual)  || isNaN(valorAnterior) ) return
-        this.valorActual = this.calculadora[this.tipoOperacion](valorAnterior, valorActual);
+
+        switch (this.tipoOperacion){
+            case "suma":
+                this.valorActual = valorActual + valorAnterior;
+                break;
+            case "resta":
+                this.valorActual = valorAnterior - valorActual;
+                break;
+            case "division":
+                this.valorActual = valorAnterior / valorActual;
+                break;
+            case "multiplicacion":
+                this.valorActual = valorActual * valorAnterior;
+                break;
+
+        }
     }
 }
